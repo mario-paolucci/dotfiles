@@ -2,3 +2,6 @@ syntax on
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+" Turn on markdown syntax highlighting for .md files
+au BufRead,BufNewFile *.md set filetype=markdown
