@@ -1,0 +1,4 @@
+sudo pmset repeat wake MTWRFSU $1:$2:00
+echo "$2 $1 * * * osascript /Users/andrew/.dotfiles/bin/runTerminal" | crontab
+echo Cron set up as follows:
+crontab -l

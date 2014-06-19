@@ -1,0 +1,46 @@
+#!/bin/bash
+# A script that will create a new script in the right place
+# with the correct permissions and do a bit of sanity checking
+
+if [[ ! $1 ]]; then
+  echo You need to give me a file name
+  exit 1
+fi
+
+scriptname="$1"
+
+# Ensure script isn't on the path already
+if type "$scriptname" 2> /dev/null; then
+  exit 1
+fi
+
+bindir=$HOME/.dotfiles/bin
+
+# Ensure directory exists
+if [[ ! -d $bindir  ]]; then
+  if mkdir $bindir; then
+    echo Created directory: $bindir
+  else
+    echo "Can't create directory: $bindir"
+    exit 1
+  fi
+fi
+
+scriptpath="$bindir/$scriptname"
+
+# Ensure file doesn't already exist
+if [[ -e $scriptpath ]]; then
+  echo A file already exists at: $scriptpath
+  exit 1;
+fi
+
+# Initalise with shebang and metadata
+echo \#!/bin/bash >> $scriptpath 
+echo \# Created by: $USER >> $scriptpath 
+echo \# $(date) >> $scriptpath
+
+# Give the script execute permissions
+chmod u+x "$scriptpath"
+
+# Open in an editor
+$EDITOR "$scriptpath"
