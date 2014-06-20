@@ -1,0 +1,4 @@
+#!/bin/bash
+# Created by: andrew
+# Sun 18 May 2014 00:50:23 BST
+networksetup -setairportnetwork en0 virginmedia3302221 cajxghpj

@@ -1,0 +1,49 @@
+#!/bin/bash
+# Created by: andrew
+# Sat 17 May 2014 17:43:53 BST
+
+readingurl='http://www.spurgeon.org/morn_eve/this_morning.cgi'
+dailydirectory="/Users/andrew/.daily/$(date "+%Y/%m")/"
+prettydate="$(date "+%d/%m/%Y")"
+outputpath="$dailydirectory$(date "+%d").txt"
+
+# Launch alarm script
+/Users/andrew/alarm > /dev/null & 
+
+printf "\nGood morning %s! Today's date is: %s\n\n" $USER $prettydate
+printf "Give me three things you are thankful for today:\n\n"
+
+read -p "1) " thankful1
+read -p "2) " thankful2
+read -p "3) " thankful3
+
+printf "\nCool, now how about something you want to achive today?\n\n"
+read -r achive
+
+# Save off input
+printf -v output "\n======================\n$prettydate - $(date "+%H:%M")\n======================\nToday you where thankful for:\n\n 1) %s\n 2) %s\n 3) %s\n\nYou wanted to:\n\n %s" "$thankful1" "$thankful2" "$thankful3" "$achive"
+
+if [[ ! -d $dailydirectory ]]; then
+  if ! mkdir -p $dailydirectory; then
+    echo Unable to create directory >&2
+  fi
+fi
+
+printf "$output" >> $outputpath
+
+printf "\nAwesome, would you like to do a bit of reading? (Y/N)\n"
+
+answer=""
+while [[ ! $answer == [YyNn] ]]; do
+  read -s -n 1 answer
+done
+
+if [[ $answer == [Yy] ]]; then
+  echo Ok, I\'ll try to connect to the wifi...
+  if connectToArdenleeWifi; then echo I\'m online!; else echo Dang, couldn\'t connect; fi
+  /usr/bin/open -a "/Applications/Google Chrome.app" "$readingurl" 
+fi
+
+printf "All the best with %s" "$achive"
+
+exit 0
