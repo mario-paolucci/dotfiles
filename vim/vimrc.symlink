@@ -11,3 +11,9 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Line numbers please
+set number
+
+" Autocomplete?
+set wildmenu

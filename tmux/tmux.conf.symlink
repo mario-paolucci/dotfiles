@@ -1,0 +1,80 @@
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind-key J resize-pane -D 5
+bind-key K resize-pane -U 5
+bind-key H resize-pane -L 5
+bind-key L resize-pane -R 5
+
+# Copy mode keybindings
+unbind p
+bind p paste-buffer
+bind -t vi-copy 'v' begin-selection
+bind -t vi-copy 'y' copy-selection
+
+# set status bar
+# ---------------------------------------------------------
+
+## default statusbar colors
+set-option -g status-utf8 on
+set-option -g status-bg colour56
+set-option -g status-fg colour15
+
+## highlight active window
+set-window-option -g window-status-current-bg colour15
+set-window-option -g window-status-current-fg colour91
+set-window-option -g window-status-current-attr bold
+set-window-option -g window-status-current-format ' #I #W '
+
+
+#set-option -g status-left '⣿'
+#set-option -g status-right '⡇ #[bold]❐ #S:#I#[default] ⡇ #[bold]#(whoami) ● #H#[default] '
+#set-option -g status-right '⡇ ❐ #S ⡇ ❖ #(rvm tools identifier) ⡇ #(whoami) ● #H '
+set-option -g status-left '⣿ #[bold]#[fg=white]❖ #(rvm tools identifier)#[fg=colour15] ❐ #S#[default] ⡇'
+set-option -g status-right '#[bold]#(whoami) ● #H#[default] %Y-%m-%d %H:%M ⡇ #(~/battery Discharging)'
+
+set-option -g status-right-length 60
+set-option -g status-left-length 60
+
+## set window notifications
+set-option -g visual-activity on
+set-option -g visual-content on
+set-window-option -g monitor-activity on
+
+## tmux window titling for X
+set-option -g set-titles on
+set-option -g set-titles-string '[#I] #W #(git rev-parse --abbrev-ref HEAD)'
+set-window-option -g automatic-rename on
+set-window-option -g window-status-format ' #I #W '
+set-window-option -g window-status-attr bold
+# starts windows at 1 not 0
+set-option -g base-index 1
+
+## #(git rev-parse --abbrev-ref HEAD)
+
+# set-window-option -g monitor-activity off
+# set-window-option -g monitor-content off
+# set-option -g status-keys vi
+# set-option -g history-limit 4096
+
+## pane border and colors
+set-option -g pane-active-border-fg yellow
+set-option -g pane-border-fg white
+
+# Time messages remain in the status bar. Lower this number
+# if this is too distracting. 
+set-option -g display-time 3000
+
+# # look good
+set -g default-terminal "screen-256color"
+#set TERM=screen-256color
+
+set -g history-limit 5000
+
+# # Set window notifications
+setw -g monitor-activity on
+set -g visual-activity on
+
+bind-key l last-window
