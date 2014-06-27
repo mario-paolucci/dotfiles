@@ -78,3 +78,7 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 bind-key l last-window
+
+
+## Don't confirm when I kill a pane, I know what I'm doing mate.
+bind-key x kill-pane
