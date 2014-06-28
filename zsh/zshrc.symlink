@@ -44,3 +44,6 @@ case "$TERM" in
         PROMPT_COMMAND="printf '\033k$(git rev-parse --abbrev-ref HEAD)\033\\';"${PROMPT_COMMAND}
         ;;
 esac
+
+# But still use emacs-style zsh bindings
+bindkey -e
