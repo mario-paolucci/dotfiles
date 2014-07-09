@@ -41,6 +41,8 @@ unset config_files
 
 case "$TERM" in
     screen*)
-        PROMPT_COMMAND="printf '\033k$(git rev-parse --abbrev-ref HEAD)\033\\';"${PROMPT_COMMAND}
+        PC="printf '\033k$(git rev-parse --abbrev-ref HEAD)\033\\';"${PROMPT_COMMAND}
         ;;
 esac
+
+bindkey '^R' history-incremental-pattern-search-backward
