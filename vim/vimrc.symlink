@@ -17,3 +17,9 @@ set number
 
 " Autocomplete?
 set wildmenu
+
+" Highlight search results
+set hlsearch
+
+" Pathogen
+execute pathogen#infect()

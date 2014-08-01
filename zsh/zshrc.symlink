@@ -4,6 +4,9 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
+# java home
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
@@ -39,8 +42,6 @@ done
 
 unset config_files
 
-setopt no_complete_aliases
-
 setopt AUTO_CD
 
 setopt AUTO_PUSHD
@@ -74,6 +75,3 @@ esac
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
-
-# load mingle details
-source ~/.dotfiles/mingle/creds.zsh
