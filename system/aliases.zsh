@@ -9,3 +9,5 @@ then
   alias la='gls -A --color'
   alias sh='pmset sleepnow'
 fi
+
+alias j="vi ~/.journal"
