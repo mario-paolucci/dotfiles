@@ -91,3 +91,4 @@ bind c new-window -c "#{pane_current_path}"
 
 ## Don't confirm when I kill a pane, I know what I'm doing mate.
 bind-key x kill-pane
+set-option -g default-command "reattach-to-user-namespace -l zsh"

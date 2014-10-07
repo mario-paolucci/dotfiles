@@ -30,3 +30,10 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " Leave buffers without asking to write
 set hidden
+
+" List possible tab completions instead of auto selecting
+set wildmenu
+set wildmode=longest,list
+
+" Lazy redraw to allow me to use the whole screen and scroll fast
+set lazyredraw
