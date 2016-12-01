@@ -5,7 +5,7 @@ export ZSH=$HOME/.dotfiles
 export PROJECTS=~/Code
 
 # java home
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -75,3 +75,10 @@ esac
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
+
+export dvsa_workspace="/Users/mariopaolucci/MOTDEV"
+export dev_workspace="${dvsa_workspace}/mot"
+export scripts_workspace="${dvsa_workspace}/mot-vagrant"
+export WORKSPACE="${dvsa_workspace}/mot"
+export puppet_workspace="${dvsa_workspace}/puppet-code"
+source /Users/mariopaolucci/MOTDEV/developer-scripts/path.sh
