@@ -82,3 +82,4 @@ export scripts_workspace="${dvsa_workspace}/mot-vagrant"
 export WORKSPACE="${dvsa_workspace}/mot"
 export puppet_workspace="${dvsa_workspace}/puppet-code"
 source /Users/mariopaolucci/MOTDEV/developer-scripts/path.sh
+pokemon $(($$%151))
